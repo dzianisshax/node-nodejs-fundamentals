@@ -3,6 +3,9 @@ import { resolve, join } from 'path';
 
 const __rootPath = resolve(import.meta.dirname, '..', 'workspace');
 
+/**
+ * The workspace folder must be located in the src directory.
+ */
 const merge = async () => {
   const partsDir = join(__rootPath, 'parts');
   const outputFile = join(__rootPath, 'merged.txt');
@@ -40,7 +43,7 @@ const merge = async () => {
 
     // Read all files in the determined order
     const fileContents = await Promise.all(
-      filesToMerge.map((filePath) => readFile(filePath, 'utf8')),
+      filesToMerge.map((filePath) => readFile(filePath, 'utf8'))
     );
 
     // Concatenate and write to merged.txt

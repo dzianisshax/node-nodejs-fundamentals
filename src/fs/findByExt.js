@@ -3,6 +3,9 @@ import { resolve, join, relative, extname } from 'node:path';
 
 const __rootPath = resolve(import.meta.dirname, '..', 'workspace');
 
+/**
+ * The workspace folder must be located in the src directory.
+ */
 const findByExt = async () => {
   // Parse the --ext CLI argument, defaulting to '.txt'
   const args = process.argv.slice(2);

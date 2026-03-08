@@ -3,6 +3,9 @@ import { stat, readdir, readFile, writeFile } from 'node:fs/promises';
 
 const __rootPath = resolve(import.meta.dirname, '..', 'workspace');
 
+/**
+ * The workspace folder must be located in the src directory.
+ */
 const snapshot = async () => {
   try {
     const workspaceStat = await stat(__rootPath);
